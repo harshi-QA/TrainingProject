@@ -22,10 +22,17 @@ public class LaunchPage extends SeleniumMethods {
     }
 
 
+
     public void clickLogin(String username, String password)
     {
         sendkeysByName("username", username );
         sendkeysByName("password", password);
+
+    public void clickLogin()
+    {
+        sendkeysByName("username", "Admin");
+        sendkeysByName("password", "admin123");
+
         click(driver, By.xpath(loginbutton));
     }
 

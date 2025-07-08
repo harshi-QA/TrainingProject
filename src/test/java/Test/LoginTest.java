@@ -3,7 +3,9 @@ package Test;
 import Base.BrowserOpen;
 import PageObject.DashBoardPage;
 import PageObject.LaunchPage;
+
 import Utility.DataProviders;
+
 import Utility.SeleniumMethods;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -23,12 +25,21 @@ public class LoginTest extends BrowserOpen{
         extent = SeleniumMethods.getExtentReport();
     }
 
+
     @Test(priority = 1, dataProvider = "loginData", dataProviderClass= DataProviders.class)
 
     public void verify_launch(String username, String password) {
         test = extent.createTest("Launch and Login Test");
         LaunchPage lp = new LaunchPage(driver, test);
         lp.clickLogin(username, password);
+
+
+    @Test(priority = 1)
+    public void verify_launch() {
+        test = extent.createTest("Launch and Login Test");
+        LaunchPage lp = new LaunchPage(driver, test);
+        lp.clickLogin();
+
         test.pass("Login successful");
     }
 
