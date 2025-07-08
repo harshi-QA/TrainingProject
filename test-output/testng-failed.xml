@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="E:/mavenproject/maven/src/test/java/Test/LoginTest.java(failed)">
+    <classes>
+      <class name="Test.LoginTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setupReport"/>
+          <include name="verify_launch"/>
+          <include name="openBrowser"/>
+          <include name="verify_dashboard"/>
+        </methods>
+      </class> <!-- Test.LoginTest -->
+    </classes>
+  </test> <!-- E:/mavenproject/maven/src/test/java/Test/LoginTest.java(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->
