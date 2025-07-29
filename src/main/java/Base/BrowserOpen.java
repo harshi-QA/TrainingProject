@@ -1,13 +1,11 @@
 package Base;
 
 
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.io.FileNotFoundException;
@@ -24,7 +22,7 @@ public class BrowserOpen {
    @Parameters({"browser"})
 
 
-    public void openBrowser(String br) throws IOException {
+    public void openBrowser(@Optional("chrome") String br) throws IOException {
 
         //loading config.properties file
         FileReader file= new FileReader("./src/main/resources/config.properties");
