@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="E:/mavenproject/maven/src/test/java/Test/LoginTest.java">
+
+    <test name="Login and Dashboard Test">
+        <parameter name="browser" value="chrome"/>
+
         <classes>
             <class name="Test.LoginTest">
 

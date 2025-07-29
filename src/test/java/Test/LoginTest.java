@@ -34,11 +34,11 @@ public class LoginTest extends BrowserOpen{
         lp.clickLogin(username, password);
 
 
-    @Test(priority = 1)
+    /*@Test(priority = 1)
     public void verify_launch() {
         test = extent.createTest("Launch and Login Test");
         LaunchPage lp = new LaunchPage(driver, test);
-        lp.clickLogin();
+        lp.clickLogin();*/
 
         test.pass("Login successful");
     }

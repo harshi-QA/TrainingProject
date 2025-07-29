@@ -1,22 +1,39 @@
 package Base;
 
+
+import org.testng.annotations.Parameters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 public class BrowserOpen {
     public WebDriver driver;
-    public String browserName="chrome";
-    @BeforeClass
-    public void openBrowser() {
-        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe"); // ✅ Move here
+    public Properties p;
+   // public String browserName="chrome";
+   @BeforeClass
+   @Parameters({"browser"})
 
-        switch (browserName.toLowerCase()) {
+
+    public void openBrowser(String br) throws IOException {
+
+        //loading config.properties file
+        FileReader file= new FileReader("./src/main/resources/config.properties");
+        p=new Properties();
+        p.load(file);
+
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+
+        switch (br.toLowerCase()) {
             case "chrome":
                 driver = new ChromeDriver();
                 break;
@@ -33,7 +50,7 @@ public class BrowserOpen {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        driver.get(p.getProperty("appURL"));
         System.out.println("Browser launched successfully");
 
     }

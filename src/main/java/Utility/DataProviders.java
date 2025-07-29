@@ -15,7 +15,7 @@ public class DataProviders {
     public Object[][] getLoginData() {
         Object[][] data = null;
         try {
-            FileInputStream fis = new FileInputStream("./testdata/LoginData.xlsx");
+            FileInputStream fis = new FileInputStream("testdata/LoginData.xlsx");
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sheet = workbook.getSheet("sheet1");
 
